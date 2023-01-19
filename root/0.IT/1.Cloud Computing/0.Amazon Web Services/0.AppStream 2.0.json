@@ -1,0 +1,32 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "AppStream 2.0"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": ""
+        }
+    ],
+    "aliases": [
+        {
+            "lang": "en",
+            "values": [
+                ""
+            ]
+        }
+    ],
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

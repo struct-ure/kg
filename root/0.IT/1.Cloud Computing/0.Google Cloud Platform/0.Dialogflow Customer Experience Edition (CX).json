@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Dialogflow Customer Experience Edition (CX)"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Dialogflow CX is an advanced development suite for creating conversational AI applications including chatbots and voicebots."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

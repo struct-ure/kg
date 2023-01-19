@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Azure Monitor"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Full observability into your apps, infrastructure, and network"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Azure Automanage"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Simplify and optimize IT management with automated operations"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

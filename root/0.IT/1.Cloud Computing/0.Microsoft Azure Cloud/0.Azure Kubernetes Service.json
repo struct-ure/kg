@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Azure Kubernetes Service"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Build and scale with managed Kubernetes"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

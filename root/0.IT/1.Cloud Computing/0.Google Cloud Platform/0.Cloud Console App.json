@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Cloud Console App"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "A native mobile app that enables customers to manage key Google Cloud services."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

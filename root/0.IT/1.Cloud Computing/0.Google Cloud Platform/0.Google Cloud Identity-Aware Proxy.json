@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Google Cloud Identity-Aware Proxy"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "A tool that helps control access, based on a user's identity and group membership, to applications running on Google Cloud Platform."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

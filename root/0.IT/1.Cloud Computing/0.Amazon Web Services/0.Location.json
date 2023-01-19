@@ -1,0 +1,32 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "Location"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": ""
+        }
+    ],
+    "aliases": [
+        {
+            "lang": "en",
+            "values": [
+                ""
+            ]
+        }
+    ],
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

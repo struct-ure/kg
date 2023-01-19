@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Google Cloud VMware Engine"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "A managed VMware-as-a-Service that is specifically designed for running VMware workloads on Google Cloud Platform."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

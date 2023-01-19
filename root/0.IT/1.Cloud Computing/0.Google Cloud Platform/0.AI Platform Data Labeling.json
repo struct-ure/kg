@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "AI Platform Data Labeling"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "AI Platform Data Labeling is a service that helps developers obtain high quality data to train and evaluate their machine learning models."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

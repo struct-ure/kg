@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Notebooks"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Notebooks is a managed service that offers an integrated JupyterLab environment in which machine learning developers and data scientists can create instances running JupyterLab that come pre-installed with the latest data science and machine learning frameworks in a single click."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

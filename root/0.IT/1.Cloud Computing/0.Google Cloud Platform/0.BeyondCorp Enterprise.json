@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "BeyondCorp Enterprise"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "A solution designed to enable zero-trust application access to enterprise users and protect enterprises from data leakage, malware and phishing attacks."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

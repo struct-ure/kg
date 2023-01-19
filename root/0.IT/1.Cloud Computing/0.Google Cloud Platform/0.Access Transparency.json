@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Access Transparency"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Captures near real-time logs of manual, targeted accesses by Google administrators, and serves them to customers via their Cloud Logging account."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

@@ -1,0 +1,32 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "Route 53 Domains"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": ""
+        }
+    ],
+    "aliases": [
+        {
+            "lang": "en",
+            "values": [
+                ""
+            ]
+        }
+    ],
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

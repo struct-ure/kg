@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Media Translation API"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Media Translation API is a gRPC API that automatically translates audio from one language to another language (e.g., French to English) and supports streaming real time."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}
