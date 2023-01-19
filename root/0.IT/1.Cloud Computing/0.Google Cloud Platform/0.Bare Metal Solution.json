@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Bare Metal Solution"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Bare Metal Solution allows you to operate and manage dedicated bare metal hardware (servers and attached storage) in Google's subprocessors' data centers to run specialized workloads with low latency."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

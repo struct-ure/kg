@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Retail Search"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Retail Search, powered by Google’s Retail API, allows retailers to leverage Google’s search capabilities on their own retail websites and mobile applications."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

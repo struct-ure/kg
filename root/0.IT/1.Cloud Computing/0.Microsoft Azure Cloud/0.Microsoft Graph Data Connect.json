@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Microsoft Graph Data Connect"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "A secure, high-throughput connector designed to copy select Microsoft 365 productivity datasets into your Azure tenant"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

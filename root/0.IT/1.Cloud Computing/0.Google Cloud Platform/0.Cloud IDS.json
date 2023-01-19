@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Cloud IDS"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Cloud  Cloud Intrusion Detection System is a managed service that aids in detecting certain malware, spyware, command-and-control attacks, and other network-based threats."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Human-in-the-Loop AI"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Human-in-the-Loop AI provides a user interface and workflow tools for human verification of data extracted from documents using Document AI."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

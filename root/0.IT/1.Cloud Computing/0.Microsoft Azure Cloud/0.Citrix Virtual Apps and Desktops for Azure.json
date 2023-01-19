@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Citrix Virtual Apps and Desktops for Azure"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

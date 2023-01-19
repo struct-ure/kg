@@ -1,0 +1,32 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "Amazon Web Services"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": ""
+        }
+    ],
+    "aliases": [
+        {
+            "lang": "en",
+            "values": [
+                "AWS"
+            ]
+        }
+    ],
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

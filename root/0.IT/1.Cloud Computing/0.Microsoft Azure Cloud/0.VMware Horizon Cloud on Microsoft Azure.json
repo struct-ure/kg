@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "VMware Horizon Cloud on Microsoft Azure"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Provision Windows desktops and apps with VMware and Azure Virtual Desktop"
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

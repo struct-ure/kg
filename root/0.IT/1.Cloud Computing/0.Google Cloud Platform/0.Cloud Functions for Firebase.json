@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Cloud Functions for Firebase"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "Cloud Functions for Firebase lets you write code that responds to events and invokes functionality exposed by other Firebase features, once you deploy JavaScript code in a hosted, private, and scalable Node.js environment that requires no maintenance."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}

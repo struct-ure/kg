@@ -1,0 +1,15 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "root"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": "The top-level Structure"
+        }
+    ],
+    "notes": "This is the top-level entry"
+}

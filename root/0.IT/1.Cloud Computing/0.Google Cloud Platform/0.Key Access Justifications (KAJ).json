@@ -1,0 +1,33 @@
+{
+  "name": [
+    {
+      "lang": "en",
+      "value": "Key Access Justifications (KAJ)"
+    }
+  ],
+  "description": [
+    {
+      "lang": "en",
+      "value": "KAJ provides a justification for every request sent through Cloud EKM for an encryption key that permits data to change state from at-rest to in-use."
+    }
+  ],
+  "aliases": [
+    {
+      "lang": "en",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "wdID": "",
+  "priorID": "",
+  "url": "",
+  "typeOf": [
+    ""
+  ],
+  "related": [
+    ""
+  ],
+  "notes": "",
+  "stackOverflowTag": ""
+}
