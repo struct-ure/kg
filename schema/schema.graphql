@@ -1,0 +1,174 @@
+"""
+Structure represents the basic element of the struct-ure knowledge graph.
+"""
+type Structure @generate(
+    query: {
+        get: true,
+        query: true,
+        aggregate: true
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    id: String! @id @search(by: [regexp])
+
+    "The Wikidata entity ID for this Structure"
+    wdID: String @search(by: [exact])
+
+    "The label of the Structure, for instance in use in UI"
+    label: [MultilingualLabel!]! @hasInverse(field:entity)
+
+    "The name of the Structure"
+    name: [MultilingualName!]! @hasInverse(field:entity)
+
+    "The description of the Structure"
+    description: [MultilingualDesc!] @hasInverse(field:entity)
+
+    "Alternate names of the Structure"
+    aliases: [MultilingualAlias!] @hasInverse(field:entity)
+
+    "A URL for more information about the Structure"
+    url: String @search(by: [fulltext, regexp])
+
+    "The ID of the prior Structure, if this Structure was relocated/renamed in the graph"
+    priorID: String @search(by: [exact])
+
+    "Categories associated with this Structure"
+    typeOf: [Structure!]
+
+    "Related Structures"
+    related: [Structure!]
+
+    "Taxonomist's notes"
+    notes: String @search(by: [fulltext])
+
+    "The calculated display position"
+    rank: Int @search
+
+    "The Stack Overflow tag"
+    stackOverflowTag: String @search(by: [exact])
+
+    "The Structure's parent in the tree"
+    parent: Structure
+    
+    "Children of this Structure"
+    children: [Structure!] @hasInverse(field: parent)
+}
+
+"""
+MultilingualLabel represents a structure names represented in one or more written languages
+"""
+type MultilingualLabel @generate(
+    query: {
+        get: true,
+        query: true,
+        aggregate: true
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    entity: Structure!
+    "The language identifier"
+    lang: String! @search(by: [exact])
+    "The actual value"
+    value: String! @search(by: [exact, term, fulltext, regexp])
+}
+
+
+"""
+MultilingualName represents a structure names represented in one or more written languages
+"""
+type MultilingualName @generate(
+    query: {
+        get: true,
+        query: true,
+        aggregate: true
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    entity: Structure!
+    "The language identifier"
+    lang: String! @search(by: [exact])
+    "The actual value"
+    value: String! @search(by: [exact, term, fulltext, regexp])
+}
+
+"""
+MultilingualDesc represents a structure descriptions represented in one or more written languages
+"""
+type MultilingualDesc @generate(
+    query: {
+        get: true,
+        query: true,
+        aggregate: true
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    entity: Structure!
+    "The language identifier"
+    lang: String! @search(by: [exact])
+    "The actual value"
+    value: String! @search(by: [exact, term, fulltext, regexp])
+}
+
+"""
+MultilingualAlias represents a number of alias text values represented in one or more written languages
+"""
+type MultilingualAlias @generate(
+    query: {
+        get: true,
+        query: true,
+        aggregate: true
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    entity: Structure!
+    "The language identifier"
+    lang: String! @search(by: [exact])
+    "The actual value"
+    values: [String!]! @search(by: [exact, term, fulltext, regexp])
+}
+
+"""
+Version represents the version and other details of the graph.
+"""
+type Version @generate(
+    query: {
+        get: false,
+        query: true,
+        aggregate: false
+    },
+    mutation: {
+        add: false,
+        delete: false,
+        update: false
+    },
+    subscription: false
+) {
+    version: String
+    timestamp: DateTime
+    notices: String
+}
