@@ -1,0 +1,8 @@
+mutation {
+  shutdown {
+    response {
+      message
+      code
+    }
+  }
+}
