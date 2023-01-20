@@ -28,11 +28,11 @@ curl --silent --data-binary '@../schema/schema.graphql' --header 'content-type: 
 template='{
     "dgraph.type": "Version",
     "Version.version": "%s",
-    "Version.timestamp: "%s"
+    "Version.timestamp": "%s"
 }
 '
 version=`git tag | sort -V | tail -1`
-ts=`date "+%Y-%m-%dT%H:%M:%S%z"`
+ts=`date -u "+%Y-%m-%dT%H:%M:%S"`
 printf "$template" $version $ts > 2.version.json
 
 echo "Schema loaded, loading the data..."
