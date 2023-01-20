@@ -4,12 +4,13 @@ deploy=/Users/matthew/code/struct-ure/deploy/
 rootDir=/Users/matthew/code/struct-ure/root
 
 echo "Converting the root folder to graph compatible import format..."
-go run go run cmd/export/main.go $rootDir
+go run cmd/export/main.go $rootDir
 if [[ $? -ne 0 ]]; then
     echo "Converstion of root failed"
     exit 1
 fi
 
+echo "Starting cluster..."
 docker run --name dgraph-loader --rm -d -p 8080:8080 --env BADGER_COMPACTL0ONCLOSE=true -v $deploy/dgraph:/dgraph dgraph/standalone:v22.0.2 > /dev/null
 if [[ $? -ne 0 ]]; then
     echo "Start of cluster failed"
