@@ -1,3 +1,6 @@
 .DS_Store
 tools/graphdata
+tools/0.root.json
+tools/1.categories.json
+tools/2.version.json
 deploy/dgraph
