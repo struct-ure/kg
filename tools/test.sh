@@ -11,3 +11,9 @@ if [[ "$id" != "https://struct-ure.org/kg/it/programming-languages/c" ]]; then
     echo "getStructureByID failed"
     exit 1
 fi
+
+version=`../query/queryVersion.sh | jq -r ".data.queryVersion.version"`
+if [[ "version" == "" ]]; then
+    echo "queryVersion failed"
+    exit 1
+fi
