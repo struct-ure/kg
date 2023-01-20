@@ -1,0 +1,12 @@
+ARG DGRAPH_VERSION
+FROM dgraph/dgraph:${DGRAPH_VERSION}-amd64
+LABEL MAINTAINER="struct-ure.org <contact@struct-ure.org>"
+
+EXPOSE 8080
+EXPOSE 9080
+
+ADD dgraph /dgraph
+ADD run.sh /run.sh
+
+RUN chmod +x /run.sh
+CMD ["/run.sh"]
