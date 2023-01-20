@@ -1,0 +1,26 @@
+query QueryStructure($filter: MultilingualStringFilter) {
+
+ all: queryStructure {
+    id
+    name {
+        lang
+        value
+    }
+    description {
+        lang
+        value
+    }
+  }
+
+  queryStructure {
+    id
+    name(filter: $filter) {
+      lang
+      value
+    }
+    description(filter: $filter) {
+      lang
+      value
+    }
+  }
+}

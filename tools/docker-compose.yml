@@ -1,0 +1,22 @@
+#version: "3.8"
+
+services:
+
+  # Dgraph Zero controls the cluster
+  zero:
+    image: dgraph/dgraph:v22.0.2
+    volumes:
+      - ./graphdata:/dgraph
+    ports:
+      - 5080:5080
+      - 6080:6080
+    command: dgraph zero --my=zero:5080
+  # Dgraph Alpha hosts predicates and indexes
+  alpha:
+    image: dgraph/dgraph:v22.0.2
+    volumes:
+      - ./graphdata:/dgraph
+    ports:
+      - 8080:8080
+      - 9080:9080
+    command: dgraph alpha --my=alpha:7080 --zero=zero:5080 --security whitelist=0.0.0.0/0
