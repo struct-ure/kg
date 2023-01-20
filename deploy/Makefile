@@ -1,15 +1,17 @@
 .PHONY: all build
 
 export DGRAPH_VERSION ?= v22.0.2
-export STRUCTURE_KG_VERSON ?= v1.0.0
+export STRUCTURE_KG_VERSON ?= $(shell git tag | sort -V | tail -1)
 
 all: build push
 
 build-arm:
-	docker build -f ./Dockerfile.arm64 -t structureorg/kg:${STRUCTURE_KG_VERSON}-arm64 -t structureorg/kg:latest-arm64 --build-arg DGRAPH_VERSION=${DGRAPH_VERSION} .
+	docker build --no-cache -f ./Dockerfile.arm64 -t structureorg/kg:${STRUCTURE_KG_VERSON}-arm64 -t structureorg/kg:latest-arm64 --build-arg DGRAPH_VERSION=${DGRAPH_VERSION} .
+	docker push structureorg/kg:${STRUCTURE_KG_VERSON}-arm64
 
 build-amd:
-	docker build -f ./Dockerfile.amd64 -t structureorg/kg:${STRUCTURE_KG_VERSON}-amd64 -t structureorg/kg:latest-amd64 --build-arg DGRAPH_VERSION=${DGRAPH_VERSION} .
+	docker build --no-cache -f ./Dockerfile.amd64 -t structureorg/kg:${STRUCTURE_KG_VERSON}-amd64 -t structureorg/kg:latest-amd64 --build-arg DGRAPH_VERSION=${DGRAPH_VERSION} .
+	docker push structureorg/kg:${STRUCTURE_KG_VERSON}-amd64
 
 build: build-arm build-amd
 
