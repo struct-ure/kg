@@ -21,5 +21,6 @@ push:
 	@echo "If the following fails, run 'docker login -u <username>'"
 	docker manifest create structureorg/kg:${STRUCTURE_KG_VERSON} --amend structureorg/kg:${STRUCTURE_KG_VERSON}-arm64 --amend structureorg/kg:${STRUCTURE_KG_VERSON}-amd64
 	docker manifest push structureorg/kg:${STRUCTURE_KG_VERSON}
+	docker manifest rm structureorg/kg:latest
 	docker manifest create structureorg/kg:latest --amend structureorg/kg:${STRUCTURE_KG_VERSON}-arm64 --amend structureorg/kg:${STRUCTURE_KG_VERSON}-amd64
 	docker manifest push structureorg/kg:latest
