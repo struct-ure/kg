@@ -18,7 +18,7 @@ if [[ $count -lt 4 ]]; then
     exit 1
 fi
 
-version=`../query/queryVersion.sh | jq -r ".data.queryVersion.version"`
+version=`../query/queryVersion.sh | jq -r ".data.queryVersion[0].version"`
 if [[ "$version" == "" ]]; then
     echo "queryVersion failed"
     exit 1
