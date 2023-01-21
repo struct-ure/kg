@@ -12,8 +12,15 @@ if [[ "$id" != "https://struct-ure.org/kg/it/programming-languages/c" ]]; then
     exit 1
 fi
 
+count=`../query/./queryStructureByTermByLang.sh | jq -r ".data.aggregateStructureByTermByLang.count"`
+if [[ $count -lt 4 ]]; then
+    echo "queryStructureByTermByLang failed"
+    exit 1
+fi
+
 version=`../query/queryVersion.sh | jq -r ".data.queryVersion.version"`
-if [[ "version" == "" ]]; then
+if [[ "$version" == "" ]]; then
     echo "queryVersion failed"
     exit 1
 fi
+
