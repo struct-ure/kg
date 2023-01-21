@@ -16,20 +16,20 @@ type Structure @generate(
 ) {
     id: String! @id @search(by: [regexp])
 
-    "The Wikidata entity ID for this Structure"
-    wdID: String @search(by: [exact])
-
     "The label of the Structure, for instance in use in UI"
-    label: [MultilingualLabel!]! @hasInverse(field:entity)
+    label: [MultilingualText!]!
 
     "The name of the Structure"
-    name: [MultilingualName!]! @hasInverse(field:entity)
+    name: [MultilingualText!]!
 
     "The description of the Structure"
-    description: [MultilingualDesc!] @hasInverse(field:entity)
+    description: [MultilingualText!]
 
     "Alternate names of the Structure"
     aliases: [MultilingualAlias!] @hasInverse(field:entity)
+
+    "The Wikidata entity ID for this Structure"
+    wdID: String @search(by: [exact])
 
     "A URL for more information about the Structure"
     url: String @search(by: [fulltext, regexp])
@@ -60,9 +60,9 @@ type Structure @generate(
 }
 
 """
-MultilingualLabel represents a structure names represented in one or more written languages
+MultilingualText represents a structure text values represented in one or more written languages
 """
-type MultilingualLabel @generate(
+type MultilingualText @generate(
     query: {
         get: true,
         query: true,
@@ -75,54 +75,6 @@ type MultilingualLabel @generate(
     },
     subscription: false
 ) {
-    entity: Structure!
-    "The language identifier"
-    lang: String! @search(by: [exact])
-    "The actual value"
-    value: String! @search(by: [exact, term, fulltext, regexp])
-}
-
-
-"""
-MultilingualName represents a structure names represented in one or more written languages
-"""
-type MultilingualName @generate(
-    query: {
-        get: true,
-        query: true,
-        aggregate: true
-    },
-    mutation: {
-        add: false,
-        delete: false,
-        update: false
-    },
-    subscription: false
-) {
-    entity: Structure!
-    "The language identifier"
-    lang: String! @search(by: [exact])
-    "The actual value"
-    value: String! @search(by: [exact, term, fulltext, regexp])
-}
-
-"""
-MultilingualDesc represents a structure descriptions represented in one or more written languages
-"""
-type MultilingualDesc @generate(
-    query: {
-        get: true,
-        query: true,
-        aggregate: true
-    },
-    mutation: {
-        add: false,
-        delete: false,
-        update: false
-    },
-    subscription: false
-) {
-    entity: Structure!
     "The language identifier"
     lang: String! @search(by: [exact])
     "The actual value"
@@ -171,4 +123,160 @@ type Version @generate(
     version: String
     timestamp: DateTime
     notices: String
+}
+
+type Aggregate {
+    count: Int
+}
+
+type Query {
+
+  aggregateStructureByTerm(term: String!): Aggregate @custom(dql: """
+    query q($term: string) {
+        LABELS as var(func: type(Structure)) @cascade {
+            Structure.label @filter(anyofterms(MultilingualText.value, $term)) {
+                uid
+            }
+        }
+        NAMES as var(func: type(Structure)) @cascade {
+            Structure.name @filter(anyofterms(MultilingualText.value, $term)) {
+                uid
+            }
+        }
+        ALIASES as var(func: type(Structure)) @cascade {
+            Structure.aliases @filter(anyofterms(MultilingualAlias.values, $term)) {
+                uid
+            }
+        }
+        aggregateStructureByTerm(func: uid(LABELS, NAMES, ALIASES)) {
+            count: count(uid)
+        }
+    }
+  """)
+
+  queryStructureByTerm(term: String!, first: Int=100, offset: Int=0): [Structure] @custom(dql: """
+    query q($term: string, $first: int=100, $offset: int=0) {
+        LABELS as var(func: type(Structure)) @cascade {
+            Structure.label @filter(anyofterms(MultilingualText.value, $term)) {
+                uid
+            }
+        }
+        NAMES as var(func: type(Structure)) @cascade {
+            Structure.name @filter(anyofterms(MultilingualText.value, $term)) {
+                uid
+            }
+        }
+        ALIASES as var(func: type(Structure)) @cascade {
+            Structure.aliases @filter(anyofterms(MultilingualAlias.values, $term)) {
+                uid
+            }
+        }
+            
+        queryStructureByTerm(func: uid(LABELS, NAMES, ALIASES), orderasc: Structure.id, first: $first, offset: $offset) {
+            id: Structure.id
+            wdID: Structure.wdID
+            label: Structure.label {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            name: Structure.name {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            description: Structure.description {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            aliases: Structure.aliases {
+                lang: MultilingualAlias.lang
+                values: MultilingualAlias.values
+            }
+            url: Structure.url
+            priorID: Structure.priorID
+            typeOf: Structure.typeOf
+            related: Structure.related
+            notes: Structure.notes
+            rank: Structure.rank
+            stackOverflowTag: Structure.stackOverflowTag
+            parent: Structure.parent {
+                id: Structure.id
+            }
+        }
+    }  
+  """)
+
+  aggregateStructureByTermByLang(term: String!, lang: String!): Aggregate @custom(dql: """
+    query q($term: string, $lang: string) {
+        LABELS as var(func: type(Structure)) @cascade {
+            Structure.label @filter(anyofterms(MultilingualText.value, $term) AND eq(MultilingualText.lang, $lang))  {
+                uid
+            }
+        }
+        NAMES as var(func: type(Structure)) @cascade {
+            Structure.name @filter(anyofterms(MultilingualText.value, $term) AND eq(MultilingualText.lang, $lang)) {
+                uid
+            }
+        }
+        ALIASES as var(func: type(Structure)) @cascade {
+            Structure.aliases @filter(anyofterms(MultilingualAlias.values, $term) AND eq(MultilingualText.lang, $lang)) {
+                uid
+            }
+        }
+        aggregateStructureByTermByLang(func: uid(LABELS, NAMES, ALIASES)) {
+            count: count(uid)
+        }
+    }
+  """)
+
+  queryStructureByTermByLang(term: String!, lang: String!, first: Int=100, offset: Int=0): [Structure] @custom(dql: """
+    query q($term: string, $lang: string, $first: int=100, $offset: int=0) {
+        LABELS as var(func: type(Structure)) @cascade {
+            Structure.label @filter(anyofterms(MultilingualText.value, $term) AND eq(MultilingualText.lang, $lang)) {
+                uid
+            }
+        }
+        NAMES as var(func: type(Structure)) @cascade {
+            Structure.name @filter(anyofterms(MultilingualText.value, $term) AND eq(MultilingualText.lang, $lang)) {
+                uid
+            }
+        }
+        ALIASES as var(func: type(Structure)) @cascade {
+            Structure.aliases @filter(anyofterms(MultilingualAlias.values, $term) AND eq(MultilingualText.lang, $lang)) {
+                uid
+            }
+        }
+            
+        queryStructureByTermByLang(func: uid(LABELS, NAMES, ALIASES), orderasc: Structure.id, first: $first, offset: $offset) {
+            id: Structure.id
+            wdID: Structure.wdID
+            label: Structure.label {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            name: Structure.name {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            description: Structure.description {
+                lang: MultilingualText.lang
+                value: MultilingualText.value
+            }
+            aliases: Structure.aliases {
+                lang: MultilingualAlias.lang
+                values: MultilingualAlias.values
+            }
+            url: Structure.url
+            priorID: Structure.priorID
+            typeOf: Structure.typeOf
+            related: Structure.related
+            notes: Structure.notes
+            rank: Structure.rank
+            stackOverflowTag: Structure.stackOverflowTag
+            parent: Structure.parent {
+                id: Structure.id
+            }
+        }
+    }  
+  """)  
+
 }

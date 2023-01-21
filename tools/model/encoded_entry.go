@@ -21,28 +21,24 @@ type EncodedEntry struct {
 	UID   string `json:"uid"`
 	Type  string `json:"dgraph.type"`
 	Label []struct {
-		Type   string    `json:"dgraph.type"`
-		Entity *uidEntry `json:"MultilingualLabel.entity"`
-		Lang   string    `json:"MultilingualLabel.lang"`
-		Value  string    `json:"MultilingualLabel.value"`
+		Type  string `json:"dgraph.type"`
+		Lang  string `json:"MultilingualText.lang"`
+		Value string `json:"MultilingualText.value"`
 	} `json:"Structure.label,omitempty"`
 	Name []struct {
-		Type   string    `json:"dgraph.type"`
-		Entity *uidEntry `json:"MultilingualName.entity"`
-		Lang   string    `json:"MultilingualName.lang"`
-		Value  string    `json:"MultilingualName.value"`
+		Type  string `json:"dgraph.type"`
+		Lang  string `json:"MultilingualText.lang"`
+		Value string `json:"MultilingualText.value"`
 	} `json:"Structure.name,omitempty"`
 	Description []struct {
-		Type   string    `json:"dgraph.type"`
-		Entity *uidEntry `json:"MultilingualDesc.entity"`
-		Lang   string    `json:"MultilingualDesc.lang"`
-		Value  string    `json:"MultilingualDesc.value"`
+		Type  string `json:"dgraph.type"`
+		Lang  string `json:"MultilingualText.lang"`
+		Value string `json:"MultilingualText.value"`
 	} `json:"Structure.description,omitempty"`
 	Aliases []*struct {
-		Type   string    `json:"dgraph.type"`
-		Entity *uidEntry `json:"MultilingualAlias.entity"`
-		Lang   string    `json:"MultilingualAlias.lang"`
-		Values []string  `json:"MultilingualAlias.values"`
+		Type   string   `json:"dgraph.type"`
+		Lang   string   `json:"MultilingualAlias.lang"`
+		Values []string `json:"MultilingualAlias.values"`
 	} `json:"Structure.aliases,omitempty"`
 	WDID             string      `json:"Structure.wdID,omitempty"`
 	Rank             int         `json:"Structure.rank"`
@@ -126,15 +122,13 @@ func (entry *EncodedEntry) UpsertName(lang, value string) {
 	}
 	if !found {
 		entry.Name = append(entry.Name, struct {
-			Type   string    `json:"dgraph.type"`
-			Entity *uidEntry `json:"MultilingualName.entity"`
-			Lang   string    `json:"MultilingualName.lang"`
-			Value  string    `json:"MultilingualName.value"`
+			Type  string `json:"dgraph.type"`
+			Lang  string `json:"MultilingualText.lang"`
+			Value string `json:"MultilingualText.value"`
 		}{
-			Type:   "MultilingualName",
-			Entity: &uidEntry{UID: entry.UID},
-			Lang:   lang,
-			Value:  value,
+			Type:  "MultilingualText",
+			Lang:  lang,
+			Value: value,
 		})
 	}
 }
@@ -149,14 +143,12 @@ func (entry *EncodedEntry) UpsertDescription(lang, value string) {
 	}
 	if !found {
 		entry.Description = append(entry.Description, struct {
-			Type   string    `json:"dgraph.type"`
-			Entity *uidEntry `json:"MultilingualDesc.entity"`
-			Lang   string    `json:"MultilingualDesc.lang"`
-			Value  string    `json:"MultilingualDesc.value"`
+			Type  string `json:"dgraph.type"`
+			Lang  string `json:"MultilingualText.lang"`
+			Value string `json:"MultilingualText.value"`
 		}{
-			Entity: &uidEntry{UID: entry.UID},
-			Lang:   lang,
-			Value:  value,
+			Lang:  lang,
+			Value: value,
 		})
 	}
 }
@@ -175,18 +167,16 @@ func (entry *EncodedEntry) UpsertAliases(lang string, aliases []gowikidata.Alias
 	// create the aliases array if not present
 	if entry.Aliases == nil {
 		entry.Aliases = make([]*struct {
-			Type   string    `json:"dgraph.type"`
-			Entity *uidEntry `json:"MultilingualAlias.entity"`
-			Lang   string    `json:"MultilingualAlias.lang"`
-			Values []string  `json:"MultilingualAlias.values"`
+			Type   string   `json:"dgraph.type"`
+			Lang   string   `json:"MultilingualAlias.lang"`
+			Values []string `json:"MultilingualAlias.values"`
 		}, 0)
 	}
 	// if no array exists for the lang, add one
 	var found = new(struct {
-		Type   string    `json:"dgraph.type"`
-		Entity *uidEntry `json:"MultilingualAlias.entity"`
-		Lang   string    "json:\"MultilingualAlias.lang\""
-		Values []string  "json:\"MultilingualAlias.values\""
+		Type   string   `json:"dgraph.type"`
+		Lang   string   "json:\"MultilingualAlias.lang\""
+		Values []string "json:\"MultilingualAlias.values\""
 	})
 	for _, e := range entry.Aliases {
 		if e.Lang == lang {
@@ -195,7 +185,6 @@ func (entry *EncodedEntry) UpsertAliases(lang string, aliases []gowikidata.Alias
 	}
 	if found.Lang == "" {
 		found.Type = "MultilingualAlias"
-		found.Entity = &uidEntry{UID: entry.UID}
 		found.Lang = lang
 		entry.Aliases = append(entry.Aliases, found)
 	}
@@ -242,16 +231,14 @@ func NewEncodedEntry(path string, entry *Entry) (*EncodedEntry, error) {
 	}
 	for _, v := range entry.Label {
 		encoded.Label = []struct {
-			Type   string    `json:"dgraph.type"`
-			Entity *uidEntry `json:"MultilingualLabel.entity"`
-			Lang   string    `json:"MultilingualLabel.lang"`
-			Value  string    `json:"MultilingualLabel.value"`
+			Type  string `json:"dgraph.type"`
+			Lang  string `json:"MultilingualText.lang"`
+			Value string `json:"MultilingualText.value"`
 		}{
 			{
-				Type:   "MultilingualLabel",
-				Entity: &uidEntry{UID: encoded.UID},
-				Lang:   v.Lang,
-				Value:  v.Value,
+				Type:  "MultilingualText",
+				Lang:  v.Lang,
+				Value: v.Value,
 			},
 		}
 	}
@@ -259,16 +246,14 @@ func NewEncodedEntry(path string, entry *Entry) (*EncodedEntry, error) {
 		if entry.Name[0].Value != "" {
 			for _, v := range entry.Name {
 				encoded.Name = []struct {
-					Type   string    `json:"dgraph.type"`
-					Entity *uidEntry `json:"MultilingualName.entity"`
-					Lang   string    `json:"MultilingualName.lang"`
-					Value  string    `json:"MultilingualName.value"`
+					Type  string `json:"dgraph.type"`
+					Lang  string `json:"MultilingualText.lang"`
+					Value string `json:"MultilingualText.value"`
 				}{
 					{
-						Type:   "MultilingualName",
-						Entity: &uidEntry{UID: encoded.UID},
-						Lang:   v.Lang,
-						Value:  v.Value,
+						Type:  "MultilingualText",
+						Lang:  v.Lang,
+						Value: v.Value,
 					},
 				}
 			}
@@ -278,16 +263,14 @@ func NewEncodedEntry(path string, entry *Entry) (*EncodedEntry, error) {
 		if entry.Description[0].Value != "" {
 			for _, v := range entry.Description {
 				encoded.Description = []struct {
-					Type   string    `json:"dgraph.type"`
-					Entity *uidEntry `json:"MultilingualDesc.entity"`
-					Lang   string    `json:"MultilingualDesc.lang"`
-					Value  string    `json:"MultilingualDesc.value"`
+					Type  string `json:"dgraph.type"`
+					Lang  string `json:"MultilingualText.lang"`
+					Value string `json:"MultilingualText.value"`
 				}{
 					{
-						Type:   "MultilingualDesc",
-						Entity: &uidEntry{UID: encoded.UID},
-						Lang:   v.Lang,
-						Value:  v.Value,
+						Type:  "MultilingualText",
+						Lang:  v.Lang,
+						Value: v.Value,
 					},
 				}
 			}
@@ -297,14 +280,12 @@ func NewEncodedEntry(path string, entry *Entry) (*EncodedEntry, error) {
 		if entry.Aliases[0].Values[0] != "" {
 			for _, v := range entry.Aliases {
 				encoded.Aliases = []*struct {
-					Type   string    `json:"dgraph.type"`
-					Entity *uidEntry `json:"MultilingualAlias.entity"`
-					Lang   string    `json:"MultilingualAlias.lang"`
-					Values []string  `json:"MultilingualAlias.values"`
+					Type   string   `json:"dgraph.type"`
+					Lang   string   `json:"MultilingualAlias.lang"`
+					Values []string `json:"MultilingualAlias.values"`
 				}{
 					{
 						Type:   "MultilingualAlias",
-						Entity: &uidEntry{UID: encoded.UID},
 						Lang:   v.Lang,
 						Values: v.Values,
 					},
