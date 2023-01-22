@@ -49,7 +49,11 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo "Graph tested, stopping the alpha..."
+echo "Graph tested, extracting full graph to JS file..."
+tree=`../query/getTree.sh | jq ".data.getStructure"`
+echo "let treeData = " $tree > ../examples/ui-tree/data.js
+
+echo "Full graph extracted, stopping the cluster..."
 curl --silent http://localhost:8080/admin/shutdown
 
 sleep 3
