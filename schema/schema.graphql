@@ -97,7 +97,6 @@ type MultilingualAlias @generate(
     },
     subscription: false
 ) {
-    entity: Structure!
     "The language identifier"
     lang: String! @search(by: [exact])
     "The actual value"
