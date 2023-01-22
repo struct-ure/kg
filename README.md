@@ -12,7 +12,7 @@ struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wik
 ### What can I do with it?
 
 * replace simple tag concepts in your software with identifiers from the graph, e.g., `"C"` becomes `https://struct-ure.org/kg/it/programming-languages/c`
-* query the entire graph to build a tree-control to present IT skills and technologies in a UI
+* query the entire graph to build a tree-control to present IT skills and technologies in a UI (for example: [this](/examples/ui-tree/index.html))
 * fork the repo and add your company-specific knowledge for use within your organization
 * find nodes that have a particular class, e.g., all database nodes that are graph-oriented
 * find KG nodes by known aliases, e.g., "Golang" is an alias for the programming language "Go"
