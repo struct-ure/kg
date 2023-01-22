@@ -1,6 +1,6 @@
 # struct-ure/kg
 
-struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) (KG) of IT skills and technology. It presents a GraphQL API to retrieve information about the graph. Transparent management of the structure and content of the graph is accomplished using git.
+struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) (KG) of IT skills and technology. It presents a GraphQL API to retrieve information from the graph. Transparent management of the structure and content of the graph is accomplished using git.
 
 ### Features
 
@@ -24,7 +24,7 @@ struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wik
 docker run -it -p 8080:8080 structureorg/kg
 ```
 
-then, query the graph using your favorite GraphQL tool. See the `query` folder for example queries. Build for both amd64 and arm64 are available on Dockerhub.
+then, query the graph using your favorite GraphQL tool. See the `query` folder for example queries. Builds for both amd64 and arm64 are available on [Dockerhub](https://hub.docker.com/r/structureorg/kg/tags).
 
 ### Contributing
 At present the KG contains over 1,700 concepts — everything from programming languages to electronic health care systems. While a promising start, there's still so much more to add! We're hopeful that domain experts, companies and tech enthusiasts will help move the KG forward.
