@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="data.js"></script>
+    <script>
+        function buildTree(lang = "en") {
+            const treeControl = document.getElementById('tree_control')
+            if (treeControl) {
+                treeControl.remove()
+            }
+
+            var ul = document.createElement('ul')
+            ul.setAttribute('id', 'tree_control')
+            ul.setAttribute('class', 'tree');
+            document.getElementById('renderTree').appendChild(ul)
+
+            function getValueByLang(field, lang = "en") {
+                let value = ""
+                field.forEach(e => {
+                    if (e.lang == lang) {
+                        value = e.value
+                    }
+                })
+                return value
+            }
+
+            function getLabel(e, lang = "en", fallbackLang = "en") {
+                var defaultLabel = getValueByLang(e.label, fallbackLang)
+                let labelValue = getValueByLang(e.label, lang)
+                if (labelValue == "") {
+                    labelValue = getValueByLang(e.name, lang)
+                }
+                return labelValue == "" ? defaultLabel : labelValue
+            }
+
+            function render(parent, e, lang = "en", open = false) {
+                var li = document.createElement('li')
+                parent.appendChild(li)
+                if (e.children.length > 0) {
+                    var details = document.createElement('details')
+                    if (open) {
+                        details.setAttribute('open', null)
+                    }
+                    li.appendChild(details);
+                    var summary = document.createElement('summary')
+                    details.appendChild(summary)
+                    summary.innerHTML = getLabel(e, lang)
+                    summary.setAttribute('title', getValueByLang(e.description, lang))
+                    summary.structureData = e
+                    summary.onclick = function() {console.log(JSON.stringify(this.structureData, null, 2))}
+                    let ul = document.createElement('ul')
+                    details.appendChild(ul)
+                    e.children.forEach(e => {
+                        render(ul, e, lang)
+                    })
+                } else {
+                    li.innerHTML = getLabel(e, lang)
+                    li.setAttribute('title', getValueByLang(e.description, lang))
+                    li.structureData = e
+                    li.onclick = function() {console.log(JSON.stringify(this.structureData, null, 2))}
+                }
+            }
+            render(ul, treeData, lang, true)
+        }
+    </script>
+    <style>
+        html {
+            height: 100%;
+            font-family: Proza, sans-serif;
+            font-weight: 300;
+            font-size: clamp(16px, 100vw / var(--width), 20px);
+            font-feature-settings: 'onum', 'pnum';
+            line-height: 1.5;
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+
+        .center {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+        .tree {
+            --spacing: 1.5rem;
+            --radius: 10px;
+        }
+
+        .tree li {
+            display: block;
+            position: relative;
+            padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+        }
+
+        .tree ul {
+            margin-left: calc(var(--radius) - var(--spacing));
+            padding-left: 0;
+        }
+
+        .tree ul li {
+            border-left: 2px solid #ddd;
+        }
+
+        .tree ul li:last-child {
+            border-color: transparent;
+        }
+
+        .tree ul li::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(var(--spacing) / -2);
+            left: -2px;
+            width: calc(var(--spacing) + 2px);
+            height: calc(var(--spacing) + 1px);
+            border: solid #ddd;
+            border-width: 0 0 2px 2px;
+        }
+
+        .tree summary {
+            display: block;
+            cursor: pointer;
+        }
+
+        .tree summary::marker,
+        .tree summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tree summary:focus {
+            outline: none;
+        }
+
+        .tree summary:focus-visible {
+            outline: 1px dotted #000;
+        }
+
+        .tree li::after,
+        .tree summary::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(var(--spacing) / 2 - var(--radius));
+            left: calc(var(--spacing) - var(--radius) - 1px);
+            width: calc(2 * var(--radius));
+            height: calc(2 * var(--radius));
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .tree summary::before {
+            content: '+';
+            z-index: 1;
+            background: #696;
+            color: #fff;
+            line-height: calc(2 * var(--radius) - 2px);
+            text-align: center;
+        }
+
+        .tree details[open]>summary::before {
+            content: '−';
+        }
+    </style>
+</head>
+
+<body>
+    <main class="center">
+        <h2>Example struct-ure/kg Tree Control</h2>
+        <p>
+            This example demonstrates building a tree control from the thousands
+            of IT skills and technology concepts in the <a target="_blank" href="https://github.com/struct-ure/kg">struct-ure knowledge graph</a>.
+        </p>
+        <p>
+            You can hover over the nodes to get descriptions of the concepts (if defined). Also, when clicked the node's
+            full definition is printed to the console.
+        </p>
+        <p>
+            struct-ure/kg supports 14 languages, use the buttons below to render the tree control in different languages.
+            The node rendering falls back to English if a particular dialect is not defined.<br/>
+            <button onclick="buildTree('en')">English</button>
+            <button onclick="buildTree('ar')">Arabic</button>
+            <button onclick="buildTree('ja')">Japanese</button>
+            <button onclick="buildTree('fr')">French</button>
+            <button onclick="buildTree('it')">Italian</button>
+            <button onclick="buildTree('zh')">Chinese</button>
+            <button onclick="buildTree('hi')">Hindi</button>
+        </p>
+        <p>
+            Credit for the excellent <a href="https://iamkate.com/code/tree-views/" target="blank">CSS-based tree control</a> goes to Kate Rose Morley.
+        </p>
+        <div id="renderTree"></div>
+    </main>
+    <script>
+        (function () {
+            buildTree("en")
+        })();
+    </script>
+</body>
