@@ -1,6 +1,6 @@
 # Contributing
 
-Additions and improvements to the KG are accomplished by editing the directory and file structure under the /root folder (in your forked repo). Simply submit a PR back to our main branch. Once merged, a new Docker image will be built and published with your changes.
+Additions and improvements to the KG are accomplished by editing the directory and file structure under the [/root](/root) folder (in your forked repo). Simply submit a PR back to our main branch. Once merged, a new Docker image will be built and published with your changes.
 
 When making changes, please limit the PR to specific areas. For example, please don't add a programming language definition and an ERP system definition in the same PR. This way, our domain experts (see below) can focus on the domain-specific changes without the distraction of non-related entries.
 
@@ -80,7 +80,7 @@ Here is a empty .json file:
 * `notes` is a place to record unstructured comments from those maintaining the graph
 
 ## URIs
-Unique identifiers for nodes in the graph use the `https://struct-ure.org/kg` prefix. For example, the concept of 'skill of writing software for mobile devices' has the unique identifier `https://struct-ure.org/kg/it/skills/mobile-development`. These IDs are constructed automatically using the .json file's location in the /root folder when the graph import data is prepared. See [/tools/util/uri.go]() for details.
+Unique identifiers for nodes in the graph use the `https://struct-ure.org/kg` prefix. For example, the concept of 'skill of writing software for mobile devices' has the unique identifier `https://struct-ure.org/kg/it/skills/mobile-development`. These IDs are constructed automatically using the .json file's location in the /root folder when the graph import data is prepared. See [/tools/util/uri.go](/tools/util/uri.go) for details.
 
 ## WikiData Integration
 When building the standalone graph, struct-ure/kg can pull information from Wikidata regarding the concept. For example, check out the .json definition for `/root/0.IT/0.Programming Languages/0.Go.json`:
@@ -109,7 +109,7 @@ When the conversion tool sees this, it will pull information from Wikidata for t
 This would result in a graph node that has the "Golang" alias (from Wikidata) and the "Go-lang" alias (from my entry).
 
 ## Languages
-struct-ure/kg supports 14 popular languages. See the [/tools/util/lang.go]() file for the definitions.
+struct-ure/kg supports 14 popular languages. See the [/tools/util/lang.go](/tools/util/lang.go) file for the definitions.
 
 ## Relocating Nodes
 When deciding to rename a node or change its location within the graph (by moving it in the /root folder), please note its prior URI-based ID in the `priorID` field.
