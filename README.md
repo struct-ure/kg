@@ -40,7 +40,7 @@ Please use the [Discussions](https://github.com/struct-ure/kg/discussions) board
 struct-ure/kg uses timestamp-based versioning in the YY.MM.DD format. The first version, 23.01.19, was tagged on January 19, 2023. You can query the KG's current version via GraphQL `queryVersion {version}`.
 
 ### Technology
-struct-ure/kg is built upon [Dgraph](https://github.com/draph-io/dgraph), a horizontally scalable and distributed GraphQL database with a graph backend. struct-ure/kg is deployed as a simple single-node cluster in its [published Docker image](https://hub.docker.com/r/structureorg/kg/tags). At present, the KG has fewer than 60k edges (Dgraph can support graphs with hundreds of millions of edges when deployed in high availability).
+struct-ure/kg is built upon [Dgraph](https://github.com/draph-io/dgraph), a horizontally scalable and distributed GraphQL database with a graph backend. struct-ure/kg is deployed as a simple single-node cluster in its [published Docker image](https://hub.docker.com/r/structureorg/kg/tags). At present, the KG has fewer than 60k edges (Dgraph can support graphs with hundreds of millions of edges when deployed in a high availability configuration).
 
 The [tools](/tools) used to build graph-compatible import files are written in Go.
 
