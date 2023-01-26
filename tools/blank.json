@@ -1,5 +1,10 @@
 {
-    "label": [],
+    "label": [
+        {
+            "lang": "en",
+            "value": ""
+        }
+    ],
     "name": [
         {
             "lang": "en",
