@@ -3,35 +3,21 @@ package util
 // SupportedLangs defines the 14 languages struct-ure/kg supports.
 //
 // According to Common Sense Advisory’s latest report, these are the top 14 online languages:
-// English
-// Simplified Chinese
-// Spanish
-// Japanese
-// German
-// French
-// Russian
-// Arabic
-// Portuguese
-// Italian
-// Korean
-// Dutch
-// Hindi
-// Chinese traditional
 var SupportedLangs = map[string]struct{}{
-	"en":           {},
-	"zh":           {},
-	"es":           {},
-	"ja":           {},
-	"de":           {},
-	"fr":           {},
-	"ru":           {},
-	"ar":           {},
-	"pt":           {},
-	"it":           {},
-	"ko":           {},
-	"nl":           {},
-	"hi":           {},
-	"zh_classical": {},
+	"en":           {}, // English
+	"zh":           {}, // Simplified Chinese
+	"es":           {}, // Spanish
+	"ja":           {}, // Japanese
+	"de":           {}, // German
+	"fr":           {}, // French
+	"ru":           {}, // Russian
+	"ar":           {}, // Arabic
+	"pt":           {}, // Portuguese
+	"it":           {}, // Italian
+	"ko":           {}, // Korean
+	"nl":           {}, // Dutch
+	"hi":           {}, // Hindi
+	"zh_classical": {}, // Chinese traditional
 }
 
 // LangSupported returns true if the passed argument is supported.
