@@ -25,7 +25,7 @@ The text between the integer prefix and the .json suffix will become the English
 
 Every node in the graph corresponds to a .json file in which the entry is defined. For folders, the `_this.json` file present in the folder defines its attributes.
 
-Here is a empty .json file:
+Here is an empty .json file:
 ```json
 {
     "label": [
@@ -67,7 +67,7 @@ Here is a empty .json file:
     "notes": ""
 }
 ```
-* `label` is an array of language-specific entries for the node's *label*. If not specified the textual part of the file name will be used as the English entry
+* `label` is an array of language-specific entries for the node's *label*. If not specified, the textual part of the file name will be used as the English entry
 * `name` is an array of language-specific entries for the node's *name*. Often they are the same, but in some cases the `label`s will be abbreviations (e.g., XML) and the `name`s will be the full name (e.g., Extensible Markup Language)
 * `description` is an array of language-specific entries for descriptions of the node
 * `aliases` is an array of language-specific entries of aliases for the the node
@@ -82,12 +82,12 @@ Here is a empty .json file:
 ## URIs
 Unique identifiers for nodes in the graph use the `https://struct-ure.org/kg` prefix. For example, the concept of 'skill of writing software for mobile devices' has the unique identifier `https://struct-ure.org/kg/it/skills/mobile-development`. These IDs are constructed automatically using the .json file's location in the /root folder when the graph import data is prepared. See [/tools/util/uri.go](/tools/util/uri.go) for details.
 
-## WikiData Integration
+## Wikidata Integration
 When building the standalone graph, struct-ure/kg can pull information from Wikidata regarding the concept. For example, check out the .json definition for `/root/0.IT/0.Programming Languages/0.Go.json`:
 
 ```json
 {
-	"wdID": "Q37227"
+    "wdID": "Q37227"
 }
 ```
 
@@ -95,7 +95,7 @@ When the conversion tool sees this, it will pull information from Wikidata for t
 
 ```json
 {
-	"wdID": "Q37227",
+    "wdID": "Q37227",
     "aliases": [
         {
             "lang": "en",
@@ -107,6 +107,14 @@ When the conversion tool sees this, it will pull information from Wikidata for t
 }
 ```
 This would result in a graph node that has the "Golang" alias (from Wikidata) and the "Go-lang" alias (from my entry).
+
+Please check the Wikidata 'Q' IDs carefully when using them. Concepts defined on Wikidata can sometimes be inconsistent. For example the concept of 'AWS' is defined as a company, while the entry for Google Cloud is defined as the service offering. Hence, at present we use [our own definition of AWS](/root/0.IT/1.Cloud%20Computing/0.Amazon%20Web%20Services/_this.json) but use [Wikidata's entry](/root/0.IT/1.Cloud%20Computing/0.Google%20Cloud%20Platform/_this.json) for Google Cloud.
+
+When adding a new entry to struct-ure/kg, two approaches are possible:
+1. Add a entity to Wikidata and then link to the newly created entity with its `wdID`
+2. Add the entity only to struct-ure/kg
+
+Obviously the first choice is preferred for a host of reasons. But there may be occasions when the second path is the right choice, e.g., forking the graph for your own organization-specific KG, or as illustrated by the problems above with the AWS concept.
 
 ## Languages
 struct-ure/kg supports 14 popular languages. See the [/tools/util/lang.go](/tools/util/lang.go) file for the definitions.
@@ -121,7 +129,7 @@ The KG has over 1,700 concepts at present. We welcome domain experts to both fle
 Ontology experts might notice that our [A-Boxes](https://en.wikipedia.org/wiki/Abox) and T-Boxes are intermixed in the graph. This was a conscience choice primarily made to keep the knowledge graph easy to consume and use in real-world applications. 
 
 ### Categories
-We also use *Categories* liberally. For example, *PostgreSQL* is first and foremost a database. Fittingly, it's located under the /root/0.IT/1.Databases folder. But it's also a *relational* database. Instead of creating folders under the `1.Databases` folder for Relational, Graph, Columnar types (and moving entries under those) we apply *Categories*. This way the high level concept of *Databases* stays uncluttered. You could then query all Database nodes that have the Relational category for example.
+We also use *Categories* liberally. For example, *PostgreSQL* is first and foremost a database. Fittingly, it's located under the /root/0.IT/1.Databases folder. But it's also a *relational* database. Instead of creating folders under the `1.Databases` folder for Relational, Graph, Columnar types (and moving entries under those) we instead apply *Categories*. This way the high level concept of *Databases* stays uncluttered. But you could query all Database nodes that have the Relational category for example.
 
 Use of categories also avoids sticky situations where a concept is more than one thing. For instance, the programming language 'C' is both a *structured* and *compiled* language. If we were to further sub-divide `Programming Languages` by `Programming Languages/Structured` and `Programming Languages/Compiled`, where would we put `C.json`?
 
