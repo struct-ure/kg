@@ -16,7 +16,7 @@ File names of both folders and files are prefixed with an integer. This integer 
 
 The integer ranking also lets graph users [present concepts](https://struct-ure.github.io/kg/examples/ui-tree/) in a logic order. For example, we define Markup Languages, Programming Languages, and other core IT concepts with a zero prefix. We rank things like ERP systems with a '4' prefix.
 
-Without this integer ranking, we'd be at the mercy of the alphabetical sort of folder entries.
+Without this integer ranking, we'd be at the mercy of the alphabetical sort of file names.
 
 #### Labels
 The text between the integer prefix and the .json suffix will become the English-specific label in the graph. You can override this (as well as add labels for other languages) by editing the .json file (see 'File Contents' below).
