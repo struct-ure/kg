@@ -1,6 +1,6 @@
 # struct-ure/kg
 
-struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) (KG) of tech skills and IT stuff (software, platforms, etc.). It presents a GraphQL API to retrieve information from the graph. Transparent management of the structure and content of the graph is accomplished using gitflow. "Editing" the KG is as simple as making changes to directories and files.
+struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) (KG) of tech skills and IT stuff (software, platforms, etc.). It presents a GraphQL API to retrieve information from the graph. Transparent management of the structure and content of the graph is accomplished using git. "Editing" the KG is as simple as making changes to directories and files.
 
 ### Features
 
@@ -15,7 +15,7 @@ struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wik
 * replace simple tag concepts in your software with identifiers from the graph, e.g., `"C"` becomes `https://struct-ure.org/kg/it/programming-languages/c`
 * query the entire graph to build a tree-control to present tech skills and software in a UI (for example: [this](https://struct-ure.github.io/kg/examples/ui-tree/))
 * fork the repo and add your company/domain-specific knowledge for use within your organization
-* find nodes that have a particular class, e.g., all database nodes that are graph-oriented
+* find nodes that have a particular category, e.g., all database nodes that are graph-oriented
 * find nodes by known aliases, e.g., "Golang" is an alias for the programming language "Go"
 * let your AI infer relationships, e.g., "EC2" is a part of "AWS" which is part of "Cloud Computing" which is part of "IT"
 
@@ -25,7 +25,7 @@ struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wik
 docker run -it -p 8080:8080 structureorg/kg
 ```
 
-then, query the graph using your favorite GraphQL tool. See the `query` folder for example queries. 
+then, query the graph using your favorite GraphQL tool. See the [/query]() folder for example queries. 
 
 Images for both amd64 and arm64 are available on [Dockerhub](https://hub.docker.com/r/structureorg/kg/tags).
 
