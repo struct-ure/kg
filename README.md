@@ -25,7 +25,7 @@ struct-ure/kg is a self-contained [knowledge graph](https://en.wikipedia.org/wik
 docker run -it -p 8080:8080 structureorg/kg
 ```
 
-then, query the graph using your favorite GraphQL tool. See the [/query]() folder for example queries. 
+then, query the graph using your favorite GraphQL tool. See the [/query](/query) folder for example queries. 
 
 Images for both amd64 and arm64 are available on [Dockerhub](https://hub.docker.com/r/structureorg/kg/tags).
 
