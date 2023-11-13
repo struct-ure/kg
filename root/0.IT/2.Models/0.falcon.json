@@ -1,28 +1,33 @@
 {
+    "label": [
+        {
+            "lang": "en",
+            "value": "falcon"
+        }
+    ],
     "name": [
         {
             "lang": "en",
-            "value": "Neural Networks"
+            "value": "falcon"
         }
     ],
     "description": [
         {
             "lang": "en",
-            "value": ""
+            "value": "A transformer-based, causal decoder-only model developed by the Technology Innovation Institute"
         }
     ],
     "aliases": [
         {
             "lang": "en",
             "values": [
-                "Deep Learning",
-                "CNN",
-                "RNN",
-                "Convolutional Neural Networks",
-                "Recurrent Neural Networks"
+                "falcon-1b",
+                "falcon-7b",
+                "falcon-40b"
             ]
         }
     ],
+    "wdID": "",
     "priorID": "",
     "url": "",
     "typeOf": [

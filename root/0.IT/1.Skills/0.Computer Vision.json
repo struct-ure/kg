@@ -2,7 +2,7 @@
     "name": [
         {
             "lang": "en",
-            "value": "Neural Networks"
+            "value": "Computer Vision"
         }
     ],
     "description": [
@@ -15,11 +15,6 @@
         {
             "lang": "en",
             "values": [
-                "Deep Learning",
-                "CNN",
-                "RNN",
-                "Convolutional Neural Networks",
-                "Recurrent Neural Networks"
             ]
         }
     ],

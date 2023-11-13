@@ -2,31 +2,27 @@
     "name": [
         {
             "lang": "en",
-            "value": "Neural Networks"
+            "value": "Chroma"
         }
     ],
     "description": [
         {
             "lang": "en",
-            "value": ""
+            "value": "AI-native open-source embedding database"
         }
     ],
     "aliases": [
         {
             "lang": "en",
             "values": [
-                "Deep Learning",
-                "CNN",
-                "RNN",
-                "Convolutional Neural Networks",
-                "Recurrent Neural Networks"
+                "Chromadb"
             ]
         }
     ],
     "priorID": "",
-    "url": "",
+    "url": "https://github.com/chroma-core/chroma",
     "typeOf": [
-        ""
+        "https://struct-ure.org/kg/it/databases/categories/vector"
     ],
     "related": [
         ""

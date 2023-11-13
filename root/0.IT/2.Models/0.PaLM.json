@@ -1,0 +1,33 @@
+{
+    "label": [
+        {
+            "lang": "en",
+            "value": "PaLM"
+        }
+    ],
+    "name": [
+        {
+            "lang": "en",
+            "value": "PaLM"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": "A transformer-based model from Google"
+        }
+    ],
+    "aliases": [
+    ],
+    "wdID": "",
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

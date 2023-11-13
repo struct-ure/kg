@@ -1,28 +1,33 @@
 {
+    "label": [
+        {
+            "lang": "en",
+            "value": "gpt"
+        }
+    ],
     "name": [
         {
             "lang": "en",
-            "value": "Neural Networks"
+            "value": "gpt"
         }
     ],
     "description": [
         {
             "lang": "en",
-            "value": ""
+            "value": "OpenAI Generative Pre-trained Transformer"
         }
     ],
     "aliases": [
         {
             "lang": "en",
             "values": [
-                "Deep Learning",
-                "CNN",
-                "RNN",
-                "Convolutional Neural Networks",
-                "Recurrent Neural Networks"
+                "gpt-3",
+                "gpt-3.5",
+                "gpt-4"
             ]
         }
     ],
+    "wdID": "",
     "priorID": "",
     "url": "",
     "typeOf": [
