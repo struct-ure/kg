@@ -26,7 +26,7 @@ type Structure @generate(
     description: [MultilingualText!]
 
     "Alternate names of the Structure"
-    aliases: [MultilingualAlias!] @hasInverse(field:entity)
+    aliases: [MultilingualAlias!]
 
     "The Wikidata entity ID for this Structure"
     wdID: String @search(by: [exact])

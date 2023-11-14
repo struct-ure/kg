@@ -1,0 +1,26 @@
+{
+    "name": [
+        {
+            "lang": "en",
+            "value": "Pinecone"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": "A specialized database designed for managing and running similarity searches on vector data"
+        }
+    ],
+    "aliases": [
+    ],
+    "priorID": "",
+    "url": "https://www.pinecone.io/",
+    "typeOf": [
+        "https://struct-ure.org/kg/it/databases/categories/vector"
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}

@@ -1,0 +1,33 @@
+{
+    "label": [
+        {
+            "lang": "en",
+            "value": "BLOOM"
+        }
+    ],
+    "name": [
+        {
+            "lang": "en",
+            "value": "BLOOM"
+        }
+    ],
+    "description": [
+        {
+            "lang": "en",
+            "value": "BigScience Large Open-science Open-access Multilingual Language Model"
+        }
+    ],
+    "aliases": [
+    ],
+    "wdID": "",
+    "priorID": "",
+    "url": "",
+    "typeOf": [
+        ""
+    ],
+    "related": [
+        ""
+    ],
+    "notes": "",
+    "stackOverflowTag": ""
+}
